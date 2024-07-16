@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h1{
+    font-size: 32px;
+    text-align: center;
+}
+/* Nav and Buttons styles */
+nav{
+    align-items: center;
+    background-color: #333;
+    padding: 2%;
+    margin: 0;
+}
+nav .navbtn {
+    display: inline;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: aliceblue;
+    text-shadow: #333 0px 0px 16px;
+}
+
+nav a:hover{
+    transition: 100ms;
+    transition-timing-function: ease-in;
+    background-color: #ddd;
+    color: black;
+    font-weight: 500;
+}
+
+/* The about section */
+.section1{
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(168, 168, 168);
+}
+.section1 h1{
+    margin-block: 30px;
+}
+
+.about-container p {
+    width: 60vh;
+    overflow: hidden;
+}
+
+.about-container img {
+    width: 40vh;max-width: 40vh;
+    height: 35vh;max-width: 35vh;
+}
+
+.about-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: 10vh;
+}
+
+/* The Work Section */
+.section2{
+    height: 100vh;max-height: 100vh;
+    background-color: #69779b
+}
+.section2 h1{
+    color:#64b2a0 ;
+    padding: 1%;
+}
+.work-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: 10vh;
+    margin-block: 2%;
+    overflow: hidden;
+}
+.work-container p{
+    width: 60vh;
+    overflow: hidden;
+    font-family: "Josefin Sans";
+    font-size: 20px;
+}
+
+.work-container table{
+    width: 40vh;max-width: 40vh;
+    height: 35vh;max-width: 35vh;
+}
+
+td{
+    transition: 300ms;
+    background-color:#333;
+    padding:18px;
+    border-radius:20px;
+    color:#fff;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+    font-size: 32px;
+}
+
+td:hover{
+    transition: 100ms;
+    transition-timing-function: ease-in;
+    background-color: #ddd;
+    color: black;
+}
