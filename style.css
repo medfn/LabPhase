@@ -78,3 +78,39 @@ input[type="submit"]:hover {
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     cursor:default;
 }
+#feedback {
+    font-size: 18px; 
+    font-weight: bold;
+    margin-top: 10px; 
+    padding: 10px; 
+    border-radius: 5px;
+    border: 2px solid; 
+    display: block; 
+    width: 100%; 
+    box-sizing: border-box; 
+    background-color: #f0f0f0;
+}
+.correct {
+    color: green;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.incorrect {
+    color: red;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+#restartButton{
+    transition-duration: 500ms;
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: large;
+}

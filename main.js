@@ -13,6 +13,7 @@ const questions = [
 
 let answeredQuestions = 0;
 let score = 0;
+let currentQuestion;
 
 function getRandomQuestion() {
     const randomIndex = Math.floor(Math.random() * questions.length);
@@ -21,40 +22,61 @@ function getRandomQuestion() {
 
 function loadQuestion() {
     if (answeredQuestions < 10) {
-        const question = getRandomQuestion();
-        document.getElementById('questionText').textContent = question.question;
-        document.getElementById('choice1').textContent = question.choices[0];
-        document.getElementById('choice2').textContent = question.choices[1];
-        document.getElementById('choice3').textContent = question.choices[2];
+        currentQuestion = getRandomQuestion(); 
+        document.getElementById('questionText').textContent = currentQuestion.question;
+        document.getElementById('choice1').textContent = currentQuestion.choices[0];
+        document.getElementById('choice2').textContent = currentQuestion.choices[1];
+        document.getElementById('choice3').textContent = currentQuestion.choices[2];
         document.getElementById('questionNumber').textContent = answeredQuestions + 1;
+        
+        // Clear previous feedback
+        const feedback = document.getElementById('feedback');
+        feedback.textContent = '';
+        feedback.className = '';
     } else {
         showFinalScreen();
     }
 }
 
 function showFinalScreen() {
-    document.getElementById('quizForm').innerHTML = `<h2>Quiz Finished</h2><p>Your final score is ${score} out of 10</p>`;
+    document.getElementById('quizForm').innerHTML = `
+        <h2>Quiz Finished</h2>
+        <p>Your final score is ${score} out of 10</p>
+        <div class="btn-container"><button id="restartButton">Restart Quiz</button></div>
+    `;
+
+    // Add event listener for the restart button
+    document.getElementById('restartButton').addEventListener('click', function() {
+        location.reload(); // Reload the page to restart the quiz
+    });
 }
+
 
 document.getElementById('quizForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
     const selectedChoice = document.querySelector('input[name="choice"]:checked');
+    const feedback = document.getElementById('feedback');
     
     if (selectedChoice) {
         const answer = selectedChoice.value;
-        const currentQuestion = getRandomQuestion(); // Use the same method to get the current question
+        
         if (answer === currentQuestion.correct) {
             score++;
-            document.getElementById('score').textContent = score;
+            feedback.textContent = 'Correct!';
+            feedback.className = 'correct';
+        } else {
+            feedback.textContent = `Incorrect. The correct answer is: ${currentQuestion.choices[questions.findIndex(q => q.correct === currentQuestion.correct)]}.`;
+            feedback.className = 'incorrect';
         }
         
+        document.getElementById('score').textContent = score;
         answeredQuestions++;
-        loadQuestion(); // Load the next question
+        loadQuestion();
     } else {
         alert('Please select an answer!');
     }
 });
 
-// Initialize the first question
+
 loadQuestion();

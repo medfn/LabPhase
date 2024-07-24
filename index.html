@@ -12,12 +12,10 @@
 <body>
     <h1 class="title">Quiz Application</h1>
     <main>
-        <div class="score">Score: <span id="score">0</span></div>
-        <div class="question-number">Question <span id="questionNumber">0</span>/10</div>
         <form id="quizForm">
 
             <div class="question">
-                <h3 id="questionText">[Insert question here]</h3>
+                <h3 id="questionText"></h3>
                 <label>
                     <input type="radio" name="choice" value="choice1"> <span id="choice1">Choice 1</span>
                 </label><br>
@@ -28,9 +26,10 @@
                     <input type="radio" name="choice" value="choice3"> <span id="choice3">Choice 3</span>
                 </label>
             </div>
-
+            <div id="feedback"></div>
+            <p class="score">Score: <span id="score">0</span></p>
+            <p class="question-number">Question <span id="questionNumber">0</span>/10</p>
             <div class="btn-container"><input type="submit" value="Next Question"></div>
-
         </form>
     </main>
     <script src="main.js"></script>
