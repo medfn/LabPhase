@@ -4,145 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP-Quiz</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+
 </head>
 
 <body>
+    <h1 class="title">Quiz Application</h1>
     <main>
-        <h1 class="title">Welcome to the quiz</h1>
-        <form action="/">
-            <div class="container-name">
-                <label for="name">Enter your full name:</label>
-                <input id="name" name="name" type="text" required>
-                <p id="name-error" style="color: red;"></p>
-            </div>
-            <div class="questions">
-                <div class="question">
-                    <h1>Question 1</h1>
-                    <p>What is 9 + 10?</p>
-                </div>
-                <div class="choice">
-                    <div class="options-1">
-                        <input type="radio" name="options1" value="20" id="opt0">
-                        <label for="opt0" id="lb0">20</label>
-                    </div>
-                    <div class="options-1">
-                        <input type="radio" name="options1" value="21" id="opt1">
-                        <label for="opt1" id="lb1">21</label>
-                    </div>
-                    <div class="options-1">
-                        <input type="radio" name="options1" value="31" id="opt2">
-                        <label for="opt2" id="lb2">31</label>
-                    </div>
-                    <div class="options-1">
-                        <input type="radio" name="options1" value="19" id="opt3">
-                        <label for="opt3" id="lb3">19</label>
-                    </div>
-                </div>
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="question-number">Question <span id="questionNumber">0</span>/10</div>
+        <form id="quizForm">
 
-                <div class="question">
-                    <h1>Question 2</h1>
-                    <p>2 + 2 = ?</p>
-                </div>
-                <div class="choice">
-                    <div class="options-2">
-                        <input type="radio" name="options2" value="1" id="opt4">
-                        <label for="opt4" id="lb4">1</label>
-                    </div>
-                    <div class="options-2">
-                        <input type="radio" name="options2" value="2" id="opt5">
-                        <label for="opt5" id="lb5">2</label>
-                    </div>
-                    <div class="options-2">
-                        <input type="radio" name="options2" value="4" id="opt6">
-                        <label for="opt6" id="lb6">4</label>
-                    </div>
-                    <div class="options-2">
-                        <input type="radio" name="options2" value="0" id="opt7">
-                        <label for="opt7" id="lb7">0</label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h1>Question 3</h1>
-                    <p>3y - 7 = 2</p>
-                </div>
-                <div class="choice">
-                    <div class="options-3">
-                        <input type="radio" name="options3" value="1" id="opt8">
-                        <label for="opt8" id="lb8">1</label>
-                    </div>
-                    <div class="options-3">
-                        <input type="radio" name="options3" value="3" id="opt9">
-                        <label for="opt9" id="lb9">3</label>
-                    </div>
-                    <div class="options-3">
-                        <input type="radio" name="options3" value="4" id="opt10">
-                        <label for="opt10" id="lb10">4</label>
-                    </div>
-                    <div class="options-3">
-                        <input type="radio" name="options3" value="2" id="opt11">
-                        <label for="opt11" id="lb11">2</label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h1>Question 4</h1>
-                    <p>2x + 5 = 13</p>
-                </div>
-                <div class="choice">
-                    <div class="options-4">
-                        <input type="radio" name="options4" value="4" id="opt12">
-                        <label for="opt12" id="lb12">4</label>
-                    </div>
-                    <div class="options-4">
-                        <input type="radio" name="options4" value="5" id="opt13">
-                        <label for="opt13" id="lb13">5</label>
-                    </div>
-                    <div class="options-4">
-                        <input type="radio" name="options4" value="6" id="opt14">
-                        <label for="opt14" id="lb14">6</label>
-                    </div>
-                    <div class="options-4">
-                        <input type="radio" name="options4" value="3" id="opt15">
-                        <label for="opt15" id="lb15">3</label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h1>Question 5</h1>
-                    <p>x^3 + y^3 + z^3 = 33</p>
-                </div>
-                <div class="choice">
-                    <div class="options-5">
-                        <input type="radio" name="options5" value="100,200,-250" id="opt16">
-                        <label for="opt16" id="lb16">x=100, y=200, z=−250</label>
-                    </div>
-                    <div class="options-5">
-                        <input type="radio" name="options5" value="500,-400,100" id="opt17">
-                        <label for="opt17" id="lb17">x=500, y=−400, z=100</label>
-                    </div>
-                    <div class="options-5">
-                        <input type="radio" name="options5" value="8866128975287528,-8778405442862239,-2736111468807040"
-                            id="opt18">
-                        <label for="opt18" id="lb18">x=8866128975287528, y=−8778405442862239,
-                            z=−2736111468807040</label>
-                    </div>
-                    <div class="options-5">
-                        <input type="radio" name="options5" value="-50,25,75" id="opt19">
-                        <label for="opt19" id="lb19">x=−50, y=25, z=75</label>
-                    </div>
-                </div>
+            <div class="question">
+                <h3 id="questionText">[Insert question here]</h3>
+                <label>
+                    <input type="radio" name="choice" value="choice1"> <span id="choice1">Choice 1</span>
+                </label><br>
+                <label>
+                    <input type="radio" name="choice" value="choice2"> <span id="choice2">Choice 2</span>
+                </label><br>
+                <label>
+                    <input type="radio" name="choice" value="choice3"> <span id="choice3">Choice 3</span>
+                </label>
             </div>
 
-            <div class="ans-btn">
-                <button onclick="calculateScore()" type="button" class="submit-answer">Submit Answer</button>
-            </div>
-            <p id="result"></p>
+            <div class="btn-container"><input type="submit" value="Next Question"></div>
+
         </form>
     </main>
+    <script src="main.js"></script>
 </body>
 
 </html>
